@@ -1,5 +1,11 @@
 import { LoginForm } from 'components/LoginForm/LoginForm';
+import { UserAuthMenu } from 'components/UserAuthMenu/UserAuthMenu';
 
 export const LoginPage = () => {
-  return <LoginForm />;
+  return (
+    <>
+      <UserAuthMenu />
+      <LoginForm />
+    </>
+  );
 };
