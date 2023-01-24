@@ -1,18 +1,11 @@
-import { useSelector } from 'react-redux';
-import { Navigation } from 'components/Navigation/Navigation';
+import { AppBar } from 'components/AppBar/AppBar';
 import { Outlet } from 'react-router-dom';
-import { AuthNavigation } from 'components/AuthNavigation/AuthNavigation';
-import { UserAuthMenu } from 'components/UserAuthMenu/UserAuthMenu';
-import { selectToken } from 'redux/auth/auth-selectors';
 
 export const Layout = () => {
-  const token = useSelector(selectToken);
-
   return (
     <>
       <header>
-        <Navigation />
-        {token ? <UserAuthMenu /> : <AuthNavigation />}
+        <AppBar />
       </header>
       <main>
         <Outlet />
