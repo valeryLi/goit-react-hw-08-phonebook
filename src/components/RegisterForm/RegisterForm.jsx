@@ -27,9 +27,14 @@ export const RegisterForm = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
+    const passwordConfirm = e.target.elements.repeatPassword.value;
+    if (password !== passwordConfirm) {
+      alert('No correct password. Try again');
+    }
 
     dispatch(register({ name, email, password }));
 
+    e.target.reset();
     reset();
   };
 

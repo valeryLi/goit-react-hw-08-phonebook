@@ -1,5 +1,6 @@
 import contactsReducer from './contacts/contactsSlice.js';
 import authReducer from './auth/authSlice';
+import filterReducer from './filter/filterSlice';
 import { configureStore } from '@reduxjs/toolkit';
 import {
   persistStore,
@@ -23,6 +24,7 @@ export const store = configureStore({
   reducer: {
     contacts: contactsReducer,
     auth: persistReducer(authPersistConfig, authReducer),
+    filter: filterReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
