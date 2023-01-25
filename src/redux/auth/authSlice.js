@@ -21,6 +21,14 @@ const authSlice = createSlice({
         state.token = null;
         state.user = { name: '', email: '' };
       })
+
+      .addCase(logout.fulfilled, state => {
+        state.isLoading = false;
+        state.error = null;
+        state.token = null;
+        state.user = { name: ' ', email: '' };
+      })
+
       .addCase(fetchCurrentUser.pending, state => {
         state.isFetchingCurrentUser = true;
       })
