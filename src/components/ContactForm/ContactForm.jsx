@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { addContact } from 'redux/contacts/contacts-operations';
 import { selectContacts } from 'redux/contacts/contacts-selectors';
+import { Flex, Button, FormLabel, Input, FormControl } from '@chakra-ui/react';
 
 export const ContactForm = () => {
   const [name, setName] = useState('');
@@ -38,32 +39,53 @@ export const ContactForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Name
-        <input
-          value={name}
-          type="text"
-          name="name"
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-          required
-          onChange={handleChange}
-        />
-      </label>
-      <label>
-        Number
-        <input
-          value={number}
-          type="tel"
-          name="number"
-          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-          required
-          onChange={handleChange}
-        />
-      </label>
-      <button>Add contact</button>
-    </form>
+    <Flex
+      as={'form'}
+      flexDirection={'column'}
+      border="1px"
+      borderColor="pink"
+      borderRadius="10px"
+      mx={'auto'}
+      mb={'50px'}
+      p={'20px'}
+      gap={'30px'}
+      w={['260px', '400px', '450px', '480px']}
+      onSubmit={handleSubmit}
+    >
+      <Flex flexDirection={'column'} align={'center'} gap={'20px'}>
+        <FormControl>
+          <FormLabel color={'pink'}>Name</FormLabel>
+
+          <Input
+            value={name}
+            type="text"
+            name="name"
+            color={'pink'}
+            placeholder="Name"
+            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+            required
+            onChange={handleChange}
+          />
+
+          <FormLabel color={'pink'}> Number </FormLabel>
+
+          <Input
+            value={number}
+            type="tel"
+            name="number"
+            color={'pink'}
+            placeholder="Phone Number"
+            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+            required
+            onChange={handleChange}
+          />
+        </FormControl>
+      </Flex>
+      <Button type="submit" colorScheme="pink" size="sm">
+        Add contact
+      </Button>
+    </Flex>
   );
 };

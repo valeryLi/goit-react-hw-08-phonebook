@@ -1,3 +1,4 @@
+import { Flex, FormControl, FormLabel, Input, Button } from '@chakra-ui/react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/auth-operations';
@@ -44,50 +45,67 @@ export const RegisterForm = () => {
     setPassword('');
   };
   return (
-    <>
-      <h2>Sign up</h2>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Name:
-          <input
+    <Flex
+      as={'form'}
+      flexDirection={'column'}
+      border="1px"
+      borderColor="pink"
+      borderRadius="10px"
+      mx={'auto'}
+      mb={'200px'}
+      p={'20px'}
+      gap={'30px'}
+      w={['260px', '400px', '450px', '480px']}
+      onSubmit={handleSubmit}
+    >
+      <Flex flexDirection={'column'} align={'center'} gap={'20px'}>
+        <FormControl isRequired>
+          <FormLabel color={'pink'}>Name</FormLabel>
+
+          <Input
             type="text"
             name="name"
             value={name}
+            color={'pink'}
             placeholder="Username"
             onChange={handleChange}
           />
-        </label>
-        <label>
-          Email:
-          <input
+
+          <FormLabel color={'pink'}>Email</FormLabel>
+
+          <Input
             type="email"
             name="email"
             value={email}
+            color={'pink'}
             placeholder="Email address"
             onChange={handleChange}
           />
-        </label>
-        <label>
-          Password:
-          <input
+
+          <FormLabel color={'pink'}>Password</FormLabel>
+          <Input
             type="password"
             name="password"
+            color={'pink'}
             value={password}
             onChange={handleChange}
             placeholder="Password"
           />
-        </label>
-        <label>
-          Password:
-          <input
+
+          <FormLabel color={'pink'}>Password</FormLabel>
+
+          <Input
             type="password"
             name="repeatPassword"
+            color={'pink'}
             onChange={handleChange}
             placeholder="Repeat password"
           />
-        </label>
-        <button>Sign Up</button>
-      </form>
-    </>
+        </FormControl>
+      </Flex>
+      <Button type="submit" colorScheme="pink" size="sm">
+        Sign Up
+      </Button>
+    </Flex>
   );
 };

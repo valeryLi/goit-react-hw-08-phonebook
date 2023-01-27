@@ -1,19 +1,31 @@
 import { NavLink } from 'react-router-dom';
-import { Link } from '@chakra-ui/react';
+import { Flex, Link, Text, List } from '@chakra-ui/react';
 
 export const AuthNavigation = () => {
   return (
-    <ul>
-      <li>
-        <Link as={NavLink} to="register" _activeLink={{ color: 'blue' }}>
-          Sign up
-        </Link>
-      </li>
-      <li>
-        <Link as={NavLink} to="login" _activeLink={{ color: 'blue' }}>
-          Login
-        </Link>
-      </li>
-    </ul>
+    <Flex>
+      <List display={'flex'} flexDirection={'row'} gap={'20px'}>
+        <li>
+          <Link
+            as={NavLink}
+            to="register"
+            _activeLink={{ color: '#7928CA', fill: '#7928CA' }}
+          >
+            <Text bgGradient="linear(to-l,#2563EB, #D946EF )" bgClip="text">
+              {' '}
+              Sign up
+            </Text>
+          </Link>
+        </li>
+        <li>
+          <Link as={NavLink} to="login" _activeLink={{ color: 'blue' }}>
+            <Text bgGradient="linear(to-l,#2563EB, #D946EF )" bgClip="text">
+              {' '}
+              Login
+            </Text>
+          </Link>
+        </li>
+      </List>
+    </Flex>
   );
 };

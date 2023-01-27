@@ -7,6 +7,7 @@ import {
 import { selectFilter } from 'redux/filter/filter-selectors';
 import { useEffect } from 'react';
 import { fetchContacts } from 'redux/contacts/contacts-operations';
+import { List } from '@chakra-ui/react';
 
 export const ContactList = () => {
   const contacts = useSelector(selectContacts);
@@ -25,11 +26,19 @@ export const ContactList = () => {
   return (
     <>
       {isLoading && <h1>Loading...</h1>}
-      <ul>
+      <List
+        listStyle={'none'}
+        color={'pink'}
+        display={'flex'}
+        flexWrap={'wrap'}
+        gap={'20px'}
+        mb={'80px'}
+        justifyContent="center"
+      >
         {filtredContacts.map(({ name, number, id }) => {
           return <Contact key={id} id={id} name={name} number={number} />;
         })}
-      </ul>
+      </List>
     </>
   );
 };
