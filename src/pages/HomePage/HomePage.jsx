@@ -1,3 +1,8 @@
+import { Box } from '@chakra-ui/react';
 export const HomePage = () => {
-  return <h1>Hello in our APP</h1>;
+  return (
+    <Box>
+      <h1>Hello in our APP</h1>
+    </Box>
+  );
 };

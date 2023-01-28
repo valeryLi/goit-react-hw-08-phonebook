@@ -9,11 +9,16 @@ export const LoginPage = () => {
       mx={'auto'}
       textAlign={'center'}
     >
-      <Heading color={'pink'} mb={'10px'}>
+      <Heading
+        bgGradient="linear(to-r, #302b63, #24243e )"
+        bgClip={'text'}
+        // color={'#C14CAC'}
+        mb={'10px'}
+      >
         Welcome back!
       </Heading>
-      <Text color={'#F6BBEE'} mb={'30px'}>
-        Please log into your account t continue
+      <Text color={'#2C2E8A'} mb={'30px'}>
+        Please log into your account to continue
       </Text>
       <LoginForm />
     </Box>
