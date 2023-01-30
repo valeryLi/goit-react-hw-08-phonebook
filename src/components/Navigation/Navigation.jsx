@@ -17,16 +17,17 @@ export const Navigation = () => {
               </Text>
             </Link>
           </li>
-          {token && (
-            <li>
+
+          <li>
+            {token && (
               <Link as={NavLink} to="contacts" _activeLink={{ color: 'blue' }}>
                 <Text bgGradient="linear(to-l,#2563EB, #D946EF )" bgClip="text">
                   {' '}
                   Contacts
                 </Text>
               </Link>
-            </li>
-          )}
+            )}
+          </li>
         </List>
       </Flex>
     </nav>

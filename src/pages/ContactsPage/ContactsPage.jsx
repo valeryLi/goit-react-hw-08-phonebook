@@ -14,7 +14,7 @@ const ContactsPage = () => {
         Add new contact:
       </Text>
       <ContactForm />
-      <Flex justify={'center'} align={'center'}>
+      <Flex justify={'center'} align={'center'} h={'400px'}>
         <ContactList />
       </Flex>
     </Box>

@@ -13,6 +13,7 @@ export const ContactList = () => {
   const contacts = useSelector(selectContacts);
   const filter = useSelector(selectFilter);
   const isLoading = useSelector(selectIsLoading);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -27,10 +28,9 @@ export const ContactList = () => {
     <>
       {isLoading && <h1>Loading...</h1>}
       <List
-        listStyle={'none'}
         color={'pink'}
         display={'flex'}
-        flexWrap={'wrap'}
+        flexDirection={'column'}
         gap={'20px'}
         mb={'80px'}
         justifyContent="center"

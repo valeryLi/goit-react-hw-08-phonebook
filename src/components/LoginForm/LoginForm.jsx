@@ -64,6 +64,7 @@ export const LoginForm = () => {
             type="email"
             name="email"
             value={email}
+            id="id"
             color={'#020226'}
             borderColor={'#D53F8C'}
             placeholder="Email address"

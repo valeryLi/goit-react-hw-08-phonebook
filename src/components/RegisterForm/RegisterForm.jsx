@@ -31,6 +31,10 @@ export const RegisterForm = () => {
     const passwordConfirm = e.target.elements.repeatPassword.value;
     if (password !== passwordConfirm) {
       alert('No correct password. Try again');
+      return;
+    }
+    if (name === '' || email === '' || password === '') {
+      alert('Please fill empty fileds');
     }
 
     dispatch(register({ name, email, password }));
@@ -66,6 +70,7 @@ export const RegisterForm = () => {
             type="text"
             name="name"
             value={name}
+            id="id"
             color={'pink'}
             placeholder="Username"
             onChange={handleChange}

@@ -27,7 +27,6 @@ export const Layout = () => {
         bgGradient="linear(to-l,#2563EB, #D946EF )"
         bgClip="text"
         alignItems={'center'}
-        mt={'300px'}
       >
         <Text textAlign={'center'}>@2023 Phonebook. Created by valeryLi.</Text>
       </Box>
