@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { addContact } from 'redux/contacts/contacts-operations';
 import { selectContacts } from 'redux/contacts/contacts-selectors';
 import { Flex, Button, FormLabel, Input, FormControl } from '@chakra-ui/react';
+import { useToast } from '@chakra-ui/react';
 
 export const ContactForm = () => {
   const [name, setName] = useState('');
@@ -10,6 +11,7 @@ export const ContactForm = () => {
 
   const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
+  const toast = useToast();
 
   const handleChange = ({ target: { name, value } }) => {
     name === 'name' ? setName(value) : setNumber(value);
@@ -23,7 +25,11 @@ export const ContactForm = () => {
     );
 
     if (isExist) {
-      alert(`${name} is already in contacts`);
+      toast({
+        description: `${name} is already in contacts`,
+        status: 'error',
+        position: 'top',
+      });
       reset();
       return;
     }
