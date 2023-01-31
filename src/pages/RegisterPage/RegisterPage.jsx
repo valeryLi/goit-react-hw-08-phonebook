@@ -1,7 +1,7 @@
 import { RegisterForm } from 'components/RegisterForm/RegisterForm';
 import { Box, Heading, Text } from '@chakra-ui/react';
 
-export const RegisterPage = () => {
+const RegisterPage = () => {
   return (
     <Box
       w={['280px', '479px', '767px', '991px', '1200px']}
@@ -19,3 +19,5 @@ export const RegisterPage = () => {
     </Box>
   );
 };
+
+export default RegisterPage;

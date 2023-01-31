@@ -1,4 +1,11 @@
-import { Flex, FormControl, FormLabel, Input, Button } from '@chakra-ui/react';
+import {
+  Flex,
+  FormControl,
+  FormLabel,
+  Input,
+  Button,
+  useToast,
+} from '@chakra-ui/react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/auth-operations';
@@ -7,6 +14,7 @@ export const RegisterForm = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const toast = useToast();
 
   const dispatch = useDispatch();
 
@@ -30,11 +38,12 @@ export const RegisterForm = () => {
     e.preventDefault();
     const passwordConfirm = e.target.elements.repeatPassword.value;
     if (password !== passwordConfirm) {
-      alert('No correct password. Try again');
+      toast({
+        position: 'top-right',
+        description: 'Those passwords did not match. Try again',
+        status: 'warning',
+      });
       return;
-    }
-    if (name === '' || email === '' || password === '') {
-      alert('Please fill empty fileds');
     }
 
     dispatch(register({ name, email, password }));
@@ -114,3 +123,5 @@ export const RegisterForm = () => {
     </Flex>
   );
 };
+
+// Incorrect login details.Please try again.

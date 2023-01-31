@@ -1,7 +1,7 @@
 import { Heading, Box, Text } from '@chakra-ui/react';
 import { LoginForm } from 'components/LoginForm/LoginForm';
 
-export const LoginPage = () => {
+const LoginPage = () => {
   return (
     <Box
       w={['280px', '479px', '767px', '991px', '1200px']}
@@ -12,7 +12,6 @@ export const LoginPage = () => {
       <Heading
         bgGradient="linear(to-r, #302b63, #24243e )"
         bgClip={'text'}
-        // color={'#C14CAC'}
         mb={'10px'}
       >
         Welcome back!
@@ -24,3 +23,5 @@ export const LoginPage = () => {
     </Box>
   );
 };
+
+export default LoginPage;

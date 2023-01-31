@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { selectContacts } from 'redux/contacts/contacts-selectors';
-import { Flex, Button, Text } from '@chakra-ui/react';
+import { Flex, Button, Text, useToast } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
@@ -10,7 +10,10 @@ import { UpdateForm } from 'components/UpdateContactForm/UpdateContact';
 export const Contact = ({ name, number, id }) => {
   const contacts = useSelector(selectContacts);
   const [contactToUpdate, setContactToUpdate] = useState(null);
+
   const dispatch = useDispatch();
+
+  const toast = useToast();
 
   const showUpdateForm = contactId => {
     const contact = contacts.find(({ id }) => id === contactId);
@@ -32,6 +35,11 @@ export const Contact = ({ name, number, id }) => {
         size="xs"
         onClick={() => {
           dispatch(deleteContact(id));
+          toast({
+            status: 'success',
+            position: 'bottom-right',
+            description: 'Your contact has been successfully deleted',
+          });
         }}
       >
         Delete

@@ -1,12 +1,19 @@
 import { useDispatch } from 'react-redux';
 import { updateContact } from 'redux/contacts/contacts-operations';
 import { useState } from 'react';
-import { FormLabel, Input, Button, Flex, FormControl } from '@chakra-ui/react';
+import {
+  FormLabel,
+  Input,
+  Button,
+  Flex,
+  FormControl,
+  useToast,
+} from '@chakra-ui/react';
 
 export const UpdateForm = ({ closeForm, contactToUpdate }) => {
   const [name, setName] = useState(contactToUpdate.name);
   const [number, setNumber] = useState(contactToUpdate.number);
-
+  const toast = useToast();
   const dispatch = useDispatch();
 
   const handleChange = ({ target: { name, value } }) => {
@@ -58,7 +65,18 @@ export const UpdateForm = ({ closeForm, contactToUpdate }) => {
         />
       </FormControl>
 
-      <Button colorScheme="pink" size="sm" type="submit">
+      <Button
+        colorScheme="pink"
+        size="sm"
+        type="submit"
+        onClick={() =>
+          toast({
+            status: 'success',
+            position: 'bottom-right',
+            description: 'Your contact details has been updated',
+          })
+        }
+      >
         Save
       </Button>
     </Flex>

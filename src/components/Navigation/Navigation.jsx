@@ -10,7 +10,12 @@ export const Navigation = () => {
       <Flex w={'100%'} align={'center'} justify={'space-between'}>
         <List>
           <li>
-            <Link as={NavLink} to="/" _activeLink={{ color: 'blue' }}>
+            <Link
+              as={NavLink}
+              to="/"
+              _activeLink={{ color: 'blue' }}
+              _hover={{ textDecoration: 'none' }}
+            >
               <Text bgGradient="linear(to-l,#2563EB, #D946EF )" bgClip="text">
                 {' '}
                 Home
@@ -20,7 +25,12 @@ export const Navigation = () => {
 
           <li>
             {token && (
-              <Link as={NavLink} to="contacts" _activeLink={{ color: 'blue' }}>
+              <Link
+                as={NavLink}
+                to="contacts"
+                _activeLink={{ color: 'blue' }}
+                _hover={{ textDecoration: 'none' }}
+              >
                 <Text bgGradient="linear(to-l,#2563EB, #D946EF )" bgClip="text">
                   {' '}
                   Contacts

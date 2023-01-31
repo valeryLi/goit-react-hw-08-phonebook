@@ -1,6 +1,7 @@
 import { Box, Text, Flex } from '@chakra-ui/react';
 import { ContactForm } from 'components/ContactForm/ContactForm';
 import { ContactList } from 'components/ContactsList/ContactList';
+import { Filter } from 'Filter/Filter';
 
 const ContactsPage = () => {
   return (
@@ -10,11 +11,12 @@ const ContactsPage = () => {
       mx={'auto'}
       textAlign={'center'}
     >
+      <Filter />
       <Text color={'pink'} mb={'20px'}>
         Add new contact:
       </Text>
       <ContactForm />
-      <Flex justify={'center'} align={'center'} h={'400px'}>
+      <Flex justify={'center'} align={'center'} minH={'300px'}>
         <ContactList />
       </Flex>
     </Box>

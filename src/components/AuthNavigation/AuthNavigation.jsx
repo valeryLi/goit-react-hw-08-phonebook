@@ -10,6 +10,7 @@ export const AuthNavigation = () => {
             as={NavLink}
             to="register"
             _activeLink={{ color: '#7928CA', fill: '#7928CA' }}
+            _hover={{ textDecoration: 'none' }}
           >
             <Text bgGradient="linear(to-l,#2563EB, #D946EF )" bgClip="text">
               {' '}
@@ -18,7 +19,12 @@ export const AuthNavigation = () => {
           </Link>
         </li>
         <li>
-          <Link as={NavLink} to="login" _activeLink={{ color: 'blue' }}>
+          <Link
+            as={NavLink}
+            to="login"
+            _activeLink={{ color: 'blue' }}
+            _hover={{ textDecoration: 'none' }}
+          >
             <Text bgGradient="linear(to-l,#2563EB, #D946EF )" bgClip="text">
               {' '}
               Login
