@@ -11,6 +11,7 @@ import { Suspense } from 'react';
 export const Layout = () => {
   const token = useSelector(selectToken);
   const location = useLocation();
+
   return location.pathname !== '/login' ? (
     <Box
       w={'100%'}
